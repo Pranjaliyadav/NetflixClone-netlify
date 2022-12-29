@@ -26,11 +26,18 @@ export default function Login() {
       console.log(err);
     }
   }; //this function gets activated with onClick event on Signup button
+  /*
+  is user signed in , finrebase console updated , if err caught, loged to firebase and 
+  not displayed to users
+  
+  */
 
   onAuthStateChanged(firebaseAuth, (currentUser) => {
     if (currentUser) navigate("/");
   }); //if we got that user already existing in firebase console then we just navigate to homepage.
   //to re-test it, just delete database from console>application>indexDB >db >delete
+  //Overall, this code listens for changes to the authenticated user's state and navigates the user to the root location of the application when a user is signed in. It is commonly used to handle the authentication flow of an application.
+
 
   return (
     <Container>
@@ -56,6 +63,10 @@ export default function Login() {
                       [e.target.name]: e.target.value,
                     })
                   // ...formValues contains previous written value and then e.target gets updated with the value that contains formvalues being updated
+                  /*
+                  whenever val of input element chnges onchnage called, ...formvalues is spreading and adding new content
+                  name gets the value
+                  */
                 }
               />
 
@@ -130,3 +141,14 @@ const Container = styled.div`
     }
   }
 `;
+
+/*
+useNavigate hook is a custom hook from rrd that provides a way to navigate to a new location within a fn comp
+navigate fn is created 
+
+react styled components
+styled components may not be the best choice for larger projects with complex styling needs, as they can be less efficient and more difficult to debug than traditional CSS styles. In these cases, it may be more appropriate to use a CSS preprocessor or a dedicated CSS file for your styles.
+
+
+
+*/

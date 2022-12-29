@@ -14,6 +14,7 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
+//initializes app with config object  contains api key auth domain,project id
 
-export const firebaseAuth = getAuth(app);
+export const firebaseAuth = getAuth(app); //gts all autheticattion services for app 
 
